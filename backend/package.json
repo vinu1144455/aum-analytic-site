@@ -1,0 +1,27 @@
+{
+  "name": "aum-analytic-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend API for AUM ANALYTIC — stores requirement submissions from the website contact form in SQLite.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node test-suite.js",
+    "hash-password": "node scripts/hash-password.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^12.11.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

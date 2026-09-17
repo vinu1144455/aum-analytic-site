@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — AUM ANALYTIC</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { 950:'#060C17', 900:'#0A1128', 800:'#0F172A', 700:'#1E293B', 600:'#334155' },
+          sky:  { 300:'#7DD3FC', 400:'#38BDF8', 500:'#0EA5E9', 600:'#0284C7' },
+          cyan: { 400:'#22D3EE', 500:'#06B6D4', 600:'#0891B2' },
+          royal:{ 500:'#3B82F6', 600:'#2563EB', 700:'#1D4ED8' },
+          paper:'#F8FAFC', ink:'#0F172A', slate2:'#475569', line:'#E2E8F0',
+        },
+        fontFamily: {
+          serif: ['"Fraunces"', 'serif'],
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['"Inter"', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; background:#F8FAFC; color:#0F172A; }
+  .field { display:block; width:100%; padding:10px 14px; border:1px solid #CBD5E1; border-radius:8px; background:#FFFFFF; font-size:14px; color:#0F172A; outline:none; transition: all .2s ease; }
+  .field:focus { border-color:#0EA5E9; box-shadow:0 0 0 3px rgba(14,165,233,0.18); }
+  .btn-primary { display:block; width:100%; padding:14px; background:linear-gradient(135deg, #06B6D4 0%, #2563EB 100%); color:#fff; border:none; border-radius:10px; cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; shadow: 0 4px 14px rgba(6,182,212,0.3); transition: transform .2s ease; }
+  .btn-primary:hover { transform:translateY(-1px); filter:brightness(1.05); }
+  .btn-primary:disabled { opacity:0.6; cursor:not-allowed; }
+  th { position:sticky; top:0; background:#F1F5F9; z-index:1; }
+  .detail-row { display:none; }
+  .detail-row.open { display:table-row; }
+  .gradient-text { background: linear-gradient(135deg, #38BDF8 0%, #22D3EE 50%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+</style>
+</head>
+<body style="min-height:100vh;">
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen" style="min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; background:linear-gradient(180deg, #060C17 0%, #0A1128 50%, #0F172A 100%);">
+  <div style="width:100%; max-width:400px; background:#FFFFFF; padding:36px; border-radius:16px; border:1px solid rgba(255,255,255,0.15); box-shadow:0 20px 40px rgba(0,0,0,0.3);">
+    <div style="display:flex; justify-content:center; margin-bottom:12px;">
+      <img src="aum-logo.jpg" alt="AUM ANALYTIC logo" style="height:56px; width:56px; border-radius:50%; object-fit:cover; border:2px solid #06B6D4; box-shadow:0 0 15px rgba(6,182,212,0.3);">
+    </div>
+    <p style="font-family:'Space Grotesk',sans-serif; color:#06B6D4; font-size:12px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; text-align:center; margin-bottom:6px;">AUM Analytic</p>
+    <h1 style="font-family:'Fraunces',serif; font-size:28px; font-weight:600; text-align:center; margin-bottom:28px; color:#0F172A;">Admin Sign In</h1>
+    
+    <label style="font-size:11px; color:#475569; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; display:block; margin-bottom:6px;">Username</label>
+    <input id="username-input" type="text" class="field" value="admin" placeholder="admin" autocomplete="username">
+    
+    <label style="font-size:11px; color:#475569; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; display:block; margin-top:16px; margin-bottom:6px;">Password</label>
+    <input id="password-input" type="password" class="field" placeholder="admin or Admin@12345" autocomplete="current-password">
+    
+    <label style="font-size:11px; color:#475569; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; display:block; margin-top:16px; margin-bottom:6px;">API Base URL</label>
+    <input id="api-base-input" type="text" class="field" value="http://localhost:4000" placeholder="http://localhost:4000">
+    
+    <button id="login-btn" class="btn-primary" style="margin-top:24px;" onclick="doLogin()">Sign In</button>
+    <p id="login-error" style="color:#dc2626; font-size:13px; margin-top:12px; text-align:center; min-height:18px;"></p>
+    <div style="margin-top:20px; padding:12px; border:1px solid #E2E8F0; border-radius:8px; background:#F8FAFC; font-size:12px; color:#475569; text-align:center;">
+      Default credentials: <strong style="color:#0F172A;">admin</strong> / <strong style="color:#0F172A;">admin</strong> (or <strong style="color:#0F172A;">Admin@12345</strong>)
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard-screen" style="display:none;">
+  <header style="background:#060C17; border-bottom:1px solid rgba(255,255,255,0.1);">
+    <div style="max-width:1400px; margin:0 auto; padding:0 24px; height:76px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="aum-logo.jpg" alt="AUM ANALYTIC logo" style="height:40px; width:40px; border-radius:50%; object-fit:cover; border:2px solid #06B6D4; box-shadow:0 0 12px rgba(6,182,212,0.3);">
+        <div>
+          <p style="font-family:'Space Grotesk',sans-serif; color:#fff; font-size:15px; font-weight:700; letter-spacing:0.05em;">AUM <span class="gradient-text">ANALYTIC</span></p>
+          <p style="color:#94a3b8; font-size:12px; font-weight:500;">Admin Submissions Portal</p>
+        </div>
+      </div>
+      <button onclick="doLogout()" style="color:#e2e8f0; font-size:12px; font-family:'Space Grotesk',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; border:1px solid rgba(255,255,255,0.2); border-radius:8px; padding:8px 18px; background:rgba(255,255,255,0.05); cursor:pointer;">Sign Out</button>
+    </div>
+  </header>
+  <main style="max-width:1400px; margin:0 auto; padding:40px 24px;">
+    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; margin-bottom:24px;">
+      <div>
+        <h1 style="font-family:'Fraunces',serif; font-size:30px; font-weight:600; color:#0F172A;">Requirement Submissions</h1>
+        <p id="results-count" style="color:#475569; font-size:14px; margin-top:4px; font-weight:500;"></p>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <input id="search-input" type="text" class="field" placeholder="Search by name, email, company…" style="width:260px;" oninput="filterRows()">
+        <button onclick="loadSubmissions()" style="border:1px solid #0F172A; border-radius:8px; color:#0F172A; font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; padding:10px 18px; background:#fff; cursor:pointer;">Refresh</button>
+      </div>
+    </div>
+    <p id="dashboard-status" style="color:#475569; font-size:14px; margin-bottom:16px;"></p>
+    <div style="overflow-x:auto; border:1px solid #E2E8F0; border-radius:12px; background:#fff; box-shadow:0 4px 12px rgba(0,0,0,0.03);">
+      <table style="width:100%; font-size:13px; border-collapse:collapse; text-align:left;">
+        <thead>
+          <tr style="border-bottom:1px solid #E2E8F0; font-size:11px; color:#475569; text-transform:uppercase; letter-spacing:0.08em;">
+            <th style="padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-weight:700;">Date</th>
+            <th style="padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-weight:700;">Name</th>
+            <th style="padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-weight:700;">Company</th>
+            <th style="padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-weight:700;">Email</th>
+            <th style="padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-weight:700;">Phone</th>
+            <th style="padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-weight:700;">Service</th>
+            <th style="padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-weight:700;">Positions</th>
+            <th style="padding:14px 16px; font-family:'Space Grotesk',sans-serif; font-weight:700;">File</th>
+            <th style="padding:14px 16px;"></th>
+            <th style="padding:14px 16px;"></th>
+          </tr>
+        </thead>
+        <tbody id="results-body"></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<script>
+var SESSION_TOKEN = '';
+var API_BASE = window.AUM_API_BASE || safeStoreGet('aum_base') || (
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:4000' : ''
+);
+var ALL_ROWS = [];
+var memStore = {};
+
+function safeStoreGet(key) {
+  try {
+    return window.sessionStorage ? window.sessionStorage.getItem(key) : memStore[key];
+  } catch(e) {
+    return memStore[key];
+  }
+}
+
+function safeStoreSet(key, val) {
+  try {
+    if (window.sessionStorage) window.sessionStorage.setItem(key, val);
+  } catch(e) {}
+  memStore[key] = val;
+}
+
+function safeStoreRemove(key) {
+  try {
+    if (window.sessionStorage) window.sessionStorage.removeItem(key);
+  } catch(e) {}
+  delete memStore[key];
+}
+
+function esc(s){if(s==null)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function fmtDate(iso){if(!iso)return'—';var s=String(iso).trim();if(!s.includes('T'))s=s.replace(' ','T')+'Z';var d=new Date(s);return isNaN(d)?iso:d.toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'});}
+function getApiBase(){var v=(document.getElementById('api-base-input').value||'').trim().replace(/\/$/,'');return v||'http://localhost:4000';}
+function showError(msg){document.getElementById('login-error').textContent=msg;}
+
+function doLogin(){
+  var u = document.getElementById('username-input').value.trim();
+  var p = document.getElementById('password-input').value;
+  var base = getApiBase();
+  showError('');
+  if(!u || !p){ showError('Please enter username and password.'); return; }
+  
+  var btn = document.getElementById('login-btn');
+  btn.disabled = true;
+  btn.textContent = 'Signing in…';
+
+  fetch(base+'/api/admin/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({username:u, password:p})
+  })
+  .then(function(res){
+    return res.json().then(function(d){ return {ok:res.ok, status:res.status, data:d}; });
+  })
+  .then(function(r){
+    if(!r.ok) throw new Error(r.data.message || ('Login failed (HTTP '+r.status+')'));
+    SESSION_TOKEN = r.data.token;
+    API_BASE = base;
+    safeStoreSet('aum_token', SESSION_TOKEN);
+    safeStoreSet('aum_base', API_BASE);
+    showDashboard();
+    loadSubmissions();
+  })
+  .catch(function(err){
+    var m = err.message || 'Login failed.';
+    if(m === 'Failed to fetch' || m.toLowerCase().includes('fetch')){
+      m = 'Cannot reach '+base+'. Ensure backend is running (npm start).';
+    }
+    showError(m);
+  })
+  .finally(function(){
+    btn.disabled = false;
+    btn.textContent = 'Sign In';
+  });
+}
+
+function doLogout(){
+  safeStoreRemove('aum_token');
+  safeStoreRemove('aum_base');
+  SESSION_TOKEN = '';
+  document.getElementById('password-input').value = '';
+  showError('');
+  document.getElementById('dashboard-screen').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+}
+
+function showDashboard(){
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('dashboard-screen').style.display = 'block';
+}
+
+function loadSubmissions(){
+  document.getElementById('dashboard-status').textContent = 'Loading…';
+  fetch(API_BASE+'/api/requirements', {
+    headers: { 'Authorization':'Bearer '+SESSION_TOKEN }
+  })
+  .then(function(res){
+    if(res.status === 401){
+      doLogout();
+      showError('Session expired. Sign in again.');
+      return null;
+    }
+    if(!res.ok) throw new Error('Failed to load submissions (HTTP '+res.status+')');
+    return res.json();
+  })
+  .then(function(data){
+    if(!data) return;
+    ALL_ROWS = data.requirements || [];
+    renderRows(ALL_ROWS);
+    document.getElementById('dashboard-status').textContent = '';
+  })
+  .catch(function(err){
+    document.getElementById('dashboard-status').textContent = err.message || 'Error loading submissions.';
+  });
+}
+
+function filterRows(){
+  var q = (document.getElementById('search-input').value || '').trim().toLowerCase();
+  if(!q){ renderRows(ALL_ROWS); return; }
+  renderRows(ALL_ROWS.filter(function(r){
+    return [r.full_name, r.company_name, r.email, r.phone, r.service_required, r.industry, r.job_details]
+      .map(function(s){ return (s||'').toLowerCase(); })
+      .join(' ')
+      .includes(q);
+  }));
+}
+
+function renderRows(rows){
+  var cnt = document.getElementById('results-count');
+  var body = document.getElementById('results-body');
+  cnt.textContent = rows.length + ' submission' + (rows.length === 1 ? '' : 's');
+  body.innerHTML = '';
+  if(!rows.length){
+    body.innerHTML = '<tr><td colspan="10" style="padding:32px 16px;text-align:center;color:#5A6C7D;">No submissions found.</td></tr>';
+    return;
+  }
+  rows.forEach(function(r, i){
+    var detailId = 'detail-' + i;
+    var tr = document.createElement('tr');
+    tr.style.cssText = 'border-bottom:1px solid #DDE2E6; cursor:pointer;';
+    tr.onmouseover = function(){ this.style.background = 'rgba(87,180,232,0.05)'; };
+    tr.onmouseout  = function(){ this.style.background = ''; };
+    var fileCell = r.file_original_name
+      ? '<a href="#" onclick="downloadFile(event,\''+esc(r.id)+'\')" style="color:#1C7CB8;text-decoration:underline;">Download</a>'
+      : '<span style="color:#5A6C7D;">—</span>';
+      
+    tr.innerHTML = 
+      '<td style="padding:12px 16px;white-space:nowrap;">'+fmtDate(r.created_at)+'</td>'+
+      '<td style="padding:12px 16px;">'+esc(r.full_name)+'</td>'+
+      '<td style="padding:12px 16px;">'+esc(r.company_name)+'</td>'+
+      '<td style="padding:12px 16px;"><a href="mailto:'+esc(r.email)+'" style="color:#1C7CB8;">'+esc(r.email)+'</a></td>'+
+      '<td style="padding:12px 16px;white-space:nowrap;">'+esc(r.phone)+'</td>'+
+      '<td style="padding:12px 16px;">'+esc(r.service_required)+'</td>'+
+      '<td style="padding:12px 16px;">'+esc(r.number_of_positions)+'</td>'+
+      '<td style="padding:12px 16px;">'+fileCell+'</td>'+
+      '<td style="padding:12px 16px;color:#5A6C7D;font-size:12px;">Details ▾</td>'+
+      '<td style="padding:12px 16px;"><button onclick="deleteRow(event,\''+esc(r.id)+'\')" style="color:#ef4444;font-size:12px;background:none;border:none;cursor:pointer;padding:0;">Delete</button></td>';
+      
+    tr.onclick = function(e){
+      if(e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+      var d = document.getElementById(detailId);
+      if(d) d.style.display = d.style.display === 'table-row' ? 'none' : 'table-row';
+    };
+    
+    var det = document.createElement('tr');
+    det.id = detailId;
+    det.style.cssText = 'display:none; background:rgba(8,15,25,0.02); border-bottom:1px solid #DDE2E6;';
+    det.innerHTML = 
+      '<td colspan="10" style="padding:16px;">'+
+        '<p style="font-size:11px;color:#5A6C7D;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Industry</p>'+
+        '<p style="margin-bottom:12px;">'+(esc(r.industry)||'—')+'</p>'+
+        '<p style="font-size:11px;color:#5A6C7D;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Job Details</p>'+
+        '<p style="white-space:pre-wrap;">'+(esc(r.job_details)||'—')+'</p>'+
+      '</td>';
+      
+    body.appendChild(tr);
+    body.appendChild(det);
+  });
+}
+
+function deleteRow(e, id){
+  e.stopPropagation();
+  if(!confirm('Delete this submission?')) return;
+  fetch(API_BASE+'/api/requirements/'+encodeURIComponent(id), {
+    method: 'DELETE',
+    headers: { 'Authorization':'Bearer '+SESSION_TOKEN }
+  })
+  .then(function(res){
+    if(!res.ok) throw new Error('Delete failed (HTTP '+res.status+')');
+    loadSubmissions();
+  })
+  .catch(function(err){ alert(err.message || 'Could not delete.'); });
+}
+
+function downloadFile(e, id){
+  e.preventDefault();
+  e.stopPropagation();
+  fetch(API_BASE+'/api/requirements/'+encodeURIComponent(id)+'/file', {
+    headers: { 'Authorization':'Bearer '+SESSION_TOKEN }
+  })
+  .then(function(res){
+    if(!res.ok) throw new Error('Download failed (HTTP '+res.status+')');
+    var disp = res.headers.get('Content-Disposition')||'';
+    var m = disp.match(/filename="?([^\"]+)"?/);
+    var fn = m ? m[1] : 'job-description';
+    return res.blob().then(function(b){ return {blob:b, filename:fn}; });
+  })
+  .then(function(f){
+    var url = URL.createObjectURL(f.blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = f.filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  })
+  .catch(function(err){ alert(err.message || 'Could not download file.'); });
+}
+
+document.getElementById('password-input').onkeydown = function(e){ if(e.key === 'Enter') doLogin(); };
+document.getElementById('username-input').onkeydown = function(e){ if(e.key === 'Enter') doLogin(); };
+document.getElementById('api-base-input').onkeydown = function(e){ if(e.key === 'Enter') doLogin(); };
+
+(function(){
+  var tok = safeStoreGet('aum_token');
+  var base = safeStoreGet('aum_base');
+  if(tok){
+    SESSION_TOKEN = tok;
+    API_BASE = base || 'http://localhost:4000';
+    showDashboard();
+    loadSubmissions();
+  }
+})();
+</script>
+</body>
+</html>

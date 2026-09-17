@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUM ANALYTIC | Connecting Talent. Enabling Growth.</title>
+<meta name="description" content="AUM ANALYTIC — IT & Non-IT talent acquisition, recruitment, staffing and consulting solutions across India, USA & Canada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,650&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: {
+            950: '#060C17',
+            900: '#0A1128',
+            800: '#0F172A',
+            700: '#1E293B',
+            600: '#334155',
+          },
+          sky: {
+            300: '#7DD3FC',
+            400: '#38BDF8',
+            500: '#0EA5E9',
+            600: '#0284C7',
+          },
+          cyan: {
+            400: '#22D3EE',
+            500: '#06B6D4',
+            600: '#0891B2',
+          },
+          royal: {
+            500: '#3B82F6',
+            600: '#2563EB',
+            700: '#1D4ED8',
+          },
+          paper: '#F8FAFC',
+          ink: '#0F172A',
+          slate2: '#475569',
+          line: '#E2E8F0',
+        },
+        fontFamily: {
+          serif: ['"Fraunces"', 'serif'],
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['"Inter"', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background:#F8FAFC; color:#0F172A; }
+  .font-serif { font-family: 'Fraunces', serif; font-feature-settings: 'ss01' 1; }
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+  .tabnum { font-variant-numeric: tabular-nums; }
+
+  ::selection { background:#06B6D4; color:#060C17; }
+  input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible {
+    outline: 2px solid #0EA5E9; outline-offset: 3px;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #38BDF8 0%, #22D3EE 50%, #60A5FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-dark {
+    background: linear-gradient(135deg, #0284C7 0%, #2563EB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ---- subtle brand mark: radar rings, used sparingly ---- */
+  .radar-ring { position:absolute; border-radius:9999px; border:1px solid rgba(6,182,212,0.25); }
+  .radar-ring.pulse { animation: radarPulse 6s ease-out infinite; }
+  .radar-ring.pulse:nth-child(2) { animation-delay: 1.5s; }
+  .radar-ring.pulse:nth-child(3) { animation-delay: 3s; }
+  @keyframes radarPulse {
+    0%   { transform: scale(.92); opacity: 0; }
+    12%  { opacity: 1; }
+    100% { transform: scale(1.04); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .radar-ring.pulse { animation: none; opacity: .5; } }
+
+  .logo-ring { position:relative; }
+  .logo-ring::after {
+    content:''; position:absolute; inset:-3px; border-radius:9999px;
+    border:1px solid rgba(6,182,212,0.5); animation: radarPulse 4s ease-out infinite;
+  }
+
+  /* ---- nav ---- */
+  .nav-link { position:relative; transition: color .2s ease; }
+  .nav-link::after {
+    content:''; position:absolute; left:0; bottom:-6px; width:0; height:2px;
+    background: linear-gradient(90deg, #38BDF8, #22D3EE);
+    border-radius: 2px;
+    transition:width .25s ease;
+  }
+  .nav-link:hover::after { width:100%; }
+  .dropdown { opacity:0; visibility:hidden; transform:translateY(6px); transition:all .18s ease; }
+  .group:hover .dropdown { opacity:1; visibility:visible; transform:translateY(0); }
+
+  /* ---- editorial service / value rows ---- */
+  .row-item { transition: background-color .25s ease, padding .25s ease, border-color .25s ease, transform .25s ease; }
+  .row-item:hover { background-color: rgba(6,182,212,0.06); }
+  .row-item:hover .row-arrow { transform: translateX(6px); opacity:1; color: #38BDF8; }
+  .row-arrow { transition: transform .25s ease, opacity .25s ease, color .25s ease; opacity:.4; }
+
+  .tag-pill { transition: all .2s ease; }
+  .tag-pill:hover { border-color:#0EA5E9; color:#0284C7; background-color: rgba(14,165,233,0.06); transform: translateY(-2px); shadow: 0 4px 12px rgba(14,165,233,0.15); }
+
+  .cta-btn { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease; }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .cta-btn:active { transform: translateY(0); }
+
+  .btn-glow {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+  }
+  .btn-glow:hover {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.6);
+  }
+
+  .field {
+    border: 1px solid #CBD5E1;
+    border-radius: 0.5rem;
+    padding: 0.625rem 0.875rem;
+    transition: all .2s ease;
+    background: #FFFFFF;
+  }
+  .field:focus {
+    border-color: #0EA5E9;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+    outline: none;
+  }
+
+  .mobile-menu { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+  .mobile-menu.open { max-height:1400px; }
+
+  /* ---- scroll reveal ---- */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .reveal-group > * { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+  .reveal-group.in-view > * { opacity: 1; transform: translateY(0); }
+  .reveal-group.in-view > *:nth-child(1) { transition-delay: .02s; }
+  .reveal-group.in-view > *:nth-child(2) { transition-delay: .07s; }
+  .reveal-group.in-view > *:nth-child(3) { transition-delay: .12s; }
+  .reveal-group.in-view > *:nth-child(4) { transition-delay: .17s; }
+  .reveal-group.in-view > *:nth-child(5) { transition-delay: .22s; }
+  .reveal-group.in-view > *:nth-child(6) { transition-delay: .27s; }
+  .reveal-group.in-view > *:nth-child(7) { transition-delay: .32s; }
+  .reveal-group.in-view > *:nth-child(8) { transition-delay: .37s; }
+  .reveal-group.in-view > *:nth-child(9) { transition-delay: .42s; }
+  .reveal-group.in-view > *:nth-child(10) { transition-delay: .47s; }
+  .reveal-group.in-view > *:nth-child(11) { transition-delay: .52s; }
+  .reveal-group.in-view > *:nth-child(12) { transition-delay: .57s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-group > * { opacity: 1; transform: none; transition: none; }
+  }
+
+  .step-marker { transition: all .3s ease; }
+  .step-item.in-view .step-marker { color:#0EA5E9; border-color:#0EA5E9; background: rgba(14,165,233,0.08); box-shadow: 0 0 15px rgba(14,165,233,0.2); }
+
+  /* ---- Smooth Partner Marquee Slideshow ---- */
+  @keyframes marqueeScroll {
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 45s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ============ NAVIGATION ============ -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 bg-[#060C17]/95 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10">
+    <div class="flex items-center justify-between h-[76px]">
+      <a href="#home" class="flex items-center gap-3 shrink-0">
+        <span class="logo-ring inline-flex rounded-full">
+          <img src="aum-logo.jpg" alt="AUM ANALYTIC logo" class="h-11 w-11 rounded-full object-cover ring-2 ring-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+        </span>
+        <span class="font-display text-white text-[16px] font-semibold tracking-wide leading-none">AUM <span class="gradient-text">ANALYTIC</span></span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-9 text-[14px] text-slate-300">
+        <a href="#home" class="nav-link py-2 hover:text-white">Home</a>
+        <a href="#about" class="nav-link py-2 hover:text-white">About Us</a>
+
+        <div class="relative group">
+          <button class="nav-link py-2 flex items-center gap-1.5 hover:text-white">Services
+            <svg class="w-3 h-3 mt-px opacity-60" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="dropdown absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[580px]">
+            <div class="bg-[#0A1128] border border-cyan-500/20 rounded-xl shadow-2xl p-6 grid grid-cols-2 gap-x-8 gap-y-1 backdrop-blur-xl">
+              <a href="#services" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Permanent Recruitment</a>
+              <a href="#services" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Direct Hire</a>
+              <a href="#services" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Contract Staffing</a>
+              <a href="#services" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Temporary Staffing</a>
+              <a href="#services" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Contract-to-Hire</a>
+              <a href="#services" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Executive Search</a>
+              <a href="#services" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Volume / Bulk Hiring</a>
+              <a href="#services" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Specialized & Niche</a>
+              <a href="#services" class="py-2.5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Urgent Hiring</a>
+              <a href="#services" class="py-2.5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Project-Based</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button class="nav-link py-2 flex items-center gap-1.5 hover:text-white">Industries
+            <svg class="w-3 h-3 mt-px opacity-60" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="dropdown absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[580px]">
+            <div class="bg-[#0A1128] border border-cyan-500/20 rounded-xl shadow-2xl p-6 grid grid-cols-2 gap-x-8 gap-y-1 backdrop-blur-xl">
+              <a href="#industries" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Banking & NBFC</a>
+              <a href="#industries" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Insurance</a>
+              <a href="#industries" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Manufacturing & Engineering</a>
+              <a href="#industries" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">FMCG</a>
+              <a href="#industries" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">FinTech</a>
+              <a href="#industries" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">IT & Technology</a>
+              <a href="#industries" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">BPO & Customer Experience</a>
+              <a href="#industries" class="py-2.5 border-b border-white/5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">EdTech</a>
+              <a href="#industries" class="py-2.5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Healthcare & Pharma</a>
+              <a href="#industries" class="py-2.5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Retail & E-Commerce</a>
+              <a href="#industries" class="py-2.5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Logistics & Supply Chain</a>
+              <a href="#industries" class="py-2.5 text-slate-300 text-sm hover:text-cyan-400 transition-colors">Corporate Services</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button class="nav-link py-2 flex items-center gap-1.5 hover:text-white">Global Reach
+            <svg class="w-3 h-3 mt-px opacity-60" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="dropdown absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52">
+            <div class="bg-[#0A1128] border border-cyan-500/20 rounded-xl shadow-2xl p-2 backdrop-blur-xl">
+              <a href="#global" class="block px-4 py-2.5 text-slate-300 text-sm hover:text-cyan-400 rounded-lg transition-colors">India</a>
+              <a href="#global" class="block px-4 py-2.5 text-slate-300 text-sm hover:text-cyan-400 rounded-lg transition-colors">Canada</a>
+              <a href="#global" class="block px-4 py-2.5 text-slate-300 text-sm hover:text-cyan-400 rounded-lg transition-colors">USA</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#careers" class="nav-link py-2 hover:text-white">Careers</a>
+        <a href="#contact" class="nav-link py-2 hover:text-white">Contact Us</a>
+      </nav>
+
+      <div class="hidden lg:block">
+        <a href="#contact" class="cta-btn btn-glow inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-royal-600 hover:from-cyan-400 hover:to-royal-500 text-white font-display text-[13px] font-semibold tracking-wide px-6 py-2.5 rounded-full transition-all">
+          Submit Requirement
+        </a>
+      </div>
+
+      <button id="menu-toggle" class="lg:hidden text-white p-2 focus:outline-none" aria-label="Toggle menu">
+        <svg id="icon-open" class="w-6 h-6" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu lg:hidden bg-[#060C17] border-t border-white/10">
+    <div class="px-5 py-4 flex flex-col text-slate-300 text-sm space-y-1">
+      <a href="#home" class="py-3 border-b border-white/5 hover:text-cyan-400">Home</a>
+      <a href="#about" class="py-3 border-b border-white/5 hover:text-cyan-400">About Us</a>
+      <a href="#services" class="py-3 border-b border-white/5 hover:text-cyan-400">Services</a>
+      <a href="#industries" class="py-3 border-b border-white/5 hover:text-cyan-400">Industries</a>
+      <a href="#global" class="py-3 border-b border-white/5 hover:text-cyan-400">Global Reach</a>
+      <a href="#careers" class="py-3 border-b border-white/5 hover:text-cyan-400">Careers</a>
+      <a href="#contact" class="py-3 border-b border-white/5 hover:text-cyan-400">Contact Us</a>
+      <a href="#contact" class="mt-4 text-center bg-gradient-to-r from-cyan-500 to-royal-600 text-white font-display text-sm py-3 rounded-xl font-semibold">Submit Requirement</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="relative bg-gradient-to-b from-[#060C17] via-[#0A1128] to-[#0F172A] pt-[152px] pb-24 lg:pt-[168px] lg:pb-32 overflow-hidden">
+  <!-- Ambient background glow elements -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none overflow-hidden opacity-30">
+    <div class="absolute top-10 left-10 w-96 h-96 bg-cyan-500/30 rounded-full blur-[120px]"></div>
+    <div class="absolute top-20 right-10 w-96 h-96 bg-royal-600/30 rounded-full blur-[120px]"></div>
+  </div>
+
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10 relative grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <div class="lg:col-span-8 reveal in-view">
+      <div class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 px-4 py-1.5 rounded-full mb-7">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <p class="font-display text-cyan-300 text-[12px] font-semibold tracking-[0.16em] uppercase">Est. 2024 — India · USA · Canada</p>
+      </div>
+      <h1 class="font-serif text-white text-[2.6rem] sm:text-6xl lg:text-[4.6rem] font-medium leading-[1.04] tracking-tight max-w-3xl">
+        Connecting <span class="gradient-text">talent.</span><br>Enabling business growth.
+      </h1>
+      <p class="mt-8 text-slate-300 text-lg leading-relaxed max-w-lg border-l-2 border-cyan-500/40 pl-5">
+        Established in 2024, AUM ANALYTIC provides IT and Non-IT talent acquisition, recruitment, staffing, and consulting solutions across India, USA, and Canada.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="#contact" class="cta-btn btn-glow bg-gradient-to-r from-cyan-500 to-royal-600 hover:from-cyan-400 hover:to-royal-500 text-white font-display text-sm font-semibold px-8 py-4 rounded-xl transition-all">Hire Talent</a>
+        <a href="#services" class="cta-btn border border-white/20 bg-white/5 backdrop-blur hover:bg-white/10 hover:border-cyan-400 text-white font-display text-sm font-medium px-8 py-4 rounded-xl transition-all">Explore Our Services</a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-4 reveal in-view">
+      <div class="relative bg-white/[0.04] backdrop-blur-md border border-white/15 rounded-2xl p-8 shadow-2xl">
+        <div class="absolute -right-10 -top-10 w-36 h-36 pointer-events-none hidden lg:block">
+          <div class="radar-ring pulse w-full h-full top-0 left-0"></div>
+          <div class="radar-ring pulse w-[65%] h-[65%] top-[17%] left-[17%]"></div>
+          <div class="radar-ring pulse w-[32%] h-[32%] top-[34%] left-[34%]"></div>
+        </div>
+        <dl class="space-y-6">
+          <div class="flex items-baseline justify-between border-b border-white/10 pb-5">
+            <dt class="text-slate-300 text-sm font-medium">Countries served</dt>
+            <dd class="font-serif text-cyan-300 text-3xl font-semibold tabnum">03</dd>
+          </div>
+          <div class="flex items-baseline justify-between border-b border-white/10 pb-5">
+            <dt class="text-slate-300 text-sm font-medium">Hiring models</dt>
+            <dd class="font-serif text-cyan-300 text-3xl font-semibold tabnum">10</dd>
+          </div>
+          <div class="flex items-baseline justify-between border-b border-white/10 pb-5">
+            <dt class="text-slate-300 text-sm font-medium">Industries covered</dt>
+            <dd class="font-serif text-cyan-300 text-3xl font-semibold tabnum">12</dd>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <dt class="text-slate-300 text-sm font-medium">Founded</dt>
+            <dd class="font-serif text-cyan-300 text-3xl font-semibold tabnum">2024</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / MISSION / VISION / VALUES ============ -->
+<section id="about" class="bg-paper py-28 relative">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-4 reveal">
+        <p class="font-display text-cyan-600 font-semibold text-[12px] tracking-[0.18em] uppercase mb-4">About Us</p>
+        <h2 class="font-serif text-4xl sm:text-[3.2rem] font-medium text-ink leading-[1.08]">A talent partner built for <span class="gradient-text-dark">scale</span></h2>
+      </div>
+      <div class="lg:col-span-8 reveal">
+        <p class="text-slate2 text-lg leading-relaxed max-w-2xl">
+          We connect organizations with the right talent and provide reliable workforce solutions that create long-term value — across technical and non-technical roles alike, in every market we serve.
+        </p>
+        <div class="mt-10 grid sm:grid-cols-2 gap-8">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-600 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="font-display text-ink text-sm font-semibold tracking-wide uppercase mb-2">Mission</p>
+            <p class="text-slate2 leading-relaxed text-sm">Connect organizations with the right talent and provide reliable workforce solutions that create long-term value.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+            <div class="w-10 h-10 rounded-lg bg-royal-500/10 text-royal-600 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="2"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <p class="font-display text-ink text-sm font-semibold tracking-wide uppercase mb-2">Vision</p>
+            <p class="text-slate2 leading-relaxed text-sm">Become a trusted global talent and consulting partner, recognized for quality and long-term client relationships.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-24">
+      <p class="font-display text-cyan-600 font-semibold text-xs tracking-wider uppercase mb-2 reveal">Core Values</p>
+      <div class="reveal-group mt-6 border-t border-line">
+        <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-line items-baseline">
+          <span class="sm:col-span-4 font-display font-semibold text-ink text-base">Integrity</span>
+          <span class="sm:col-span-8 text-slate2">Honest, transparent dealings at every stage of the process.</span>
+        </div>
+        <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-line items-baseline">
+          <span class="sm:col-span-4 font-display font-semibold text-ink text-base">Quality</span>
+          <span class="sm:col-span-8 text-slate2">Rigorous screening behind every shortlist we send.</span>
+        </div>
+        <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-line items-baseline">
+          <span class="sm:col-span-4 font-display font-semibold text-ink text-base">Client Focus</span>
+          <span class="sm:col-span-8 text-slate2">Solutions shaped around your hiring goals, not ours.</span>
+        </div>
+        <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-line items-baseline">
+          <span class="sm:col-span-4 font-display font-semibold text-ink text-base">Agility</span>
+          <span class="sm:col-span-8 text-slate2">Fast turnaround without cutting corners on quality.</span>
+        </div>
+        <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-line items-baseline">
+          <span class="sm:col-span-4 font-display font-semibold text-ink text-base">Partnership</span>
+          <span class="sm:col-span-8 text-slate2">We grow deliberately, in step with your teams.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="bg-gradient-to-b from-[#0A1128] via-[#0F172A] to-[#0A1128] py-28 relative overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10 relative">
+    <div class="grid lg:grid-cols-12 gap-12 mb-16">
+      <div class="lg:col-span-4 reveal">
+        <p class="font-display text-cyan-400 text-[12px] font-semibold tracking-[0.18em] uppercase mb-4">What We Do</p>
+        <h2 class="font-serif text-4xl sm:text-[3.2rem] font-medium text-white leading-[1.08]">Our services</h2>
+      </div>
+      <div class="lg:col-span-8 reveal flex items-end">
+        <p class="text-slate-300 text-lg leading-relaxed max-w-xl">Ten hiring models under one point of accountability — choose the fit for your role, timeline and budget.</p>
+      </div>
+    </div>
+
+    <div class="reveal-group border-t border-white/10 space-y-1 pt-2">
+      <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-white/10 items-center px-4 rounded-xl">
+        <span class="sm:col-span-5 font-display text-lg text-white font-medium">Permanent Recruitment</span>
+        <span class="sm:col-span-6 text-slate-300 text-sm">Full-time hires matched to long-term team needs.</span>
+        <svg class="row-arrow sm:col-span-1 w-5 h-5 text-cyan-400 justify-self-end" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-white/10 items-center px-4 rounded-xl">
+        <span class="sm:col-span-5 font-display text-lg text-white font-medium">Direct Hire</span>
+        <span class="sm:col-span-6 text-slate-300 text-sm">Candidates placed straight onto your payroll.</span>
+        <svg class="row-arrow sm:col-span-1 w-5 h-5 text-cyan-400 justify-self-end" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-white/10 items-center px-4 rounded-xl">
+        <span class="sm:col-span-5 font-display text-lg text-white font-medium">Contract Staffing</span>
+        <span class="sm:col-span-6 text-slate-300 text-sm">Flexible resourcing for defined project windows.</span>
+        <svg class="row-arrow sm:col-span-1 w-5 h-5 text-cyan-400 justify-self-end" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-white/10 items-center px-4 rounded-xl">
+        <span class="sm:col-span-5 font-display text-lg text-white font-medium">Temporary Staffing</span>
+        <span class="sm:col-span-6 text-slate-300 text-sm">Short-term cover for seasonal or peak demand.</span>
+        <svg class="row-arrow sm:col-span-1 w-5 h-5 text-cyan-400 justify-self-end" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-white/10 items-center px-4 rounded-xl">
+        <span class="sm:col-span-5 font-display text-lg text-white font-medium">Contract-to-Hire</span>
+        <span class="sm:col-span-6 text-slate-300 text-sm">Trial the fit before converting to full-time.</span>
+        <svg class="row-arrow sm:col-span-1 w-5 h-5 text-cyan-400 justify-self-end" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-white/10 items-center px-4 rounded-xl">
+        <span class="sm:col-span-5 font-display text-lg text-white font-medium">Executive Search</span>
+        <span class="sm:col-span-6 text-slate-300 text-sm">CXO, Director and VP-level leadership hiring.</span>
+        <svg class="row-arrow sm:col-span-1 w-5 h-5 text-cyan-400 justify-self-end" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-white/10 items-center px-4 rounded-xl">
+        <span class="sm:col-span-5 font-display text-lg text-white font-medium">Volume & Bulk Hiring</span>
+        <span class="sm:col-span-6 text-slate-300 text-sm">Structured pipelines for high-volume ramp-ups.</span>
+        <svg class="row-arrow sm:col-span-1 w-5 h-5 text-cyan-400 justify-self-end" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-white/10 items-center px-4 rounded-xl">
+        <span class="sm:col-span-5 font-display text-lg text-white font-medium">Specialized & Niche</span>
+        <span class="sm:col-span-6 text-slate-300 text-sm">Hard-to-find skill sets sourced through deep networks.</span>
+        <svg class="row-arrow sm:col-span-1 w-5 h-5 text-cyan-400 justify-self-end" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-white/10 items-center px-4 rounded-xl">
+        <span class="sm:col-span-5 font-display text-lg text-white font-medium">Urgent & Critical Hiring</span>
+        <span class="sm:col-span-6 text-slate-300 text-sm">Rapid-response search for time-critical roles.</span>
+        <svg class="row-arrow sm:col-span-1 w-5 h-5 text-cyan-400 justify-self-end" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="row-item grid sm:grid-cols-12 gap-4 py-6 border-b border-white/10 items-center px-4 rounded-xl">
+        <span class="sm:col-span-5 font-display text-lg text-white font-medium">Project-Based Hiring</span>
+        <span class="sm:col-span-6 text-slate-300 text-sm">Teams assembled around a fixed project scope.</span>
+        <svg class="row-arrow sm:col-span-1 w-5 h-5 text-cyan-400 justify-self-end" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IT / NON-IT CAPABILITIES ============ -->
+<section class="bg-paper py-28">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10">
+    <div class="reveal mb-16">
+      <p class="font-display text-cyan-600 font-semibold text-[12px] tracking-[0.18em] uppercase mb-4">Capabilities</p>
+      <h2 class="font-serif text-4xl sm:text-[3.2rem] font-medium text-ink leading-[1.08] max-w-2xl">IT and Non-IT recruitment</h2>
+    </div>
+
+    <div class="reveal-group grid lg:grid-cols-2 gap-8">
+      <div class="bg-white p-8 lg:p-10 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+        <div class="inline-block bg-cyan-500/10 text-cyan-700 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">Technical</div>
+        <h3 class="font-serif text-2xl text-ink mb-6">IT Recruitment</h3>
+        <ul class="space-y-3.5 text-slate2">
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-cyan-500"></span>Software Development: Java, .NET, Python, Full Stack</li>
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-cyan-500"></span>Cloud & DevOps: AWS, Azure</li>
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-cyan-500"></span>Data & AI</li>
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-cyan-500"></span>Cybersecurity</li>
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-cyan-500"></span>QA & Testing</li>
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-cyan-500"></span>Solution Architecture</li>
+          <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-cyan-500"></span>Product & Project Management</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-8 lg:p-10 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+        <div class="inline-block bg-royal-500/10 text-royal-700 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">Business</div>
+        <h3 class="font-serif text-2xl text-ink mb-6">Non-IT Recruitment</h3>
+        <ul class="space-y-3.5 text-slate2">
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-royal-500"></span>Sales & Business Development</li>
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-royal-500"></span>Banking & NBFC</li>
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-royal-500"></span>Finance & Accounts</li>
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-royal-500"></span>Manufacturing & Engineering</li>
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-royal-500"></span>Supply Chain</li>
+          <li class="flex items-center gap-3 border-b border-slate-100 pb-3"><span class="w-2 h-2 rounded-full bg-royal-500"></span>Healthcare & Pharma</li>
+          <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-royal-500"></span>HR & Operations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section id="industries" class="bg-white py-28">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-4 reveal">
+        <p class="font-display text-sky-600 text-[12px] tracking-[0.18em] uppercase mb-4">Sectors</p>
+        <h2 class="font-serif text-4xl sm:text-[3.2rem] font-medium text-ink leading-[1.08]">Industries we serve</h2>
+        <p class="mt-6 text-slate2 leading-relaxed">Twelve sectors, each with hiring managers who speak the vocabulary of that industry.</p>
+      </div>
+      <div class="lg:col-span-8 reveal-group flex flex-wrap gap-3 content-start">
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">Banking & NBFC</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">Insurance</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">Manufacturing & Engineering</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">FMCG</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">FinTech</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">IT & Technology</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">BPO & Customer Experience</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">EdTech</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">Healthcare & Pharma</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">Retail & E-Commerce</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">Logistics & Supply Chain</span>
+        <span class="tag-pill bg-white border border-slate-200/80 shadow-sm px-5 py-2.5 text-ink text-sm rounded-full font-medium">Corporate Services</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GLOBAL REACH ============ -->
+<section id="global" class="bg-gradient-to-b from-[#060C17] via-[#0A1128] to-[#0F172A] py-28 relative overflow-hidden">
+  <div class="absolute left-[-120px] bottom-[-120px] w-[360px] h-[360px] hidden md:block pointer-events-none">
+    <div class="radar-ring pulse w-full h-full top-0 left-0"></div>
+    <div class="radar-ring pulse w-[65%] h-[65%] top-[17%] left-[17%]"></div>
+  </div>
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10 relative">
+    <div class="grid lg:grid-cols-12 gap-12 mb-16">
+      <div class="lg:col-span-4 reveal">
+        <p class="font-display text-cyan-400 font-semibold text-[12px] tracking-[0.18em] uppercase mb-4">Locations</p>
+        <h2 class="font-serif text-4xl sm:text-[3.2rem] font-medium text-white leading-[1.08]">Global reach</h2>
+      </div>
+      <div class="lg:col-span-8 reveal flex items-end">
+        <p class="text-cyan-300 text-lg font-medium">Local understanding. Global talent access.</p>
+      </div>
+    </div>
+
+    <div class="reveal-group grid md:grid-cols-3 gap-8">
+      <div class="bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:border-cyan-500/40 transition-all">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+          <p class="font-serif text-2xl text-white font-semibold">India</p>
+        </div>
+        <ul class="space-y-3 text-slate-300 text-sm">
+          <li class="border-b border-white/10 pb-2.5 flex items-center justify-between"><span>Delhi</span><span class="text-xs text-cyan-400">NCR</span></li>
+          <li class="border-b border-white/10 pb-2.5 flex items-center justify-between"><span>Noida</span><span class="text-xs text-cyan-400">Hub</span></li>
+          <li class="border-b border-white/10 pb-2.5 flex items-center justify-between"><span>Hapur</span><span class="text-xs text-cyan-400">HQ</span></li>
+          <li class="border-b border-white/10 pb-2.5 flex items-center justify-between"><span>Gurugram</span><span class="text-xs text-cyan-400">Tech</span></li>
+          <li class="border-b border-white/10 pb-2.5 flex items-center justify-between"><span>Bengaluru</span><span class="text-xs text-cyan-400">Tech</span></li>
+          <li class="flex items-center justify-between"><span>Mumbai</span><span class="text-xs text-cyan-400">Finance</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:border-cyan-500/40 transition-all">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-3 h-3 rounded-full bg-royal-500"></span>
+          <p class="font-serif text-2xl text-white font-semibold">Canada</p>
+        </div>
+        <ul class="space-y-3 text-slate-300 text-sm">
+          <li class="border-b border-white/10 pb-2.5 flex items-center justify-between"><span>Brampton</span><span class="text-xs text-royal-400">ON</span></li>
+          <li class="border-b border-white/10 pb-2.5 flex items-center justify-between"><span>Toronto</span><span class="text-xs text-royal-400">ON</span></li>
+          <li class="flex items-center justify-between"><span>Mississauga</span><span class="text-xs text-royal-400">Office</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:border-cyan-500/40 transition-all">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-3 h-3 rounded-full bg-sky-400"></span>
+          <p class="font-serif text-2xl text-white font-semibold">USA</p>
+        </div>
+        <ul class="space-y-3 text-slate-300 text-sm">
+          <li class="flex items-center justify-between py-2"><span class="font-medium text-white">Nationwide Coverage</span><span class="text-xs text-sky-400">50 States</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7-STEP PROCESS ============ -->
+<section class="bg-paper py-28">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10">
+    <div class="reveal mb-16">
+      <p class="font-display text-cyan-600 font-semibold text-[12px] tracking-[0.18em] uppercase mb-4">Methodology</p>
+      <h2 class="font-serif text-4xl sm:text-[3.2rem] font-medium text-ink leading-[1.08] max-w-2xl">Our recruitment process</h2>
+    </div>
+
+    <div id="process-track" class="grid lg:grid-cols-7 gap-5">
+      <div class="step-item bg-white p-6 lg:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-cyan-500/40 transition-all">
+        <p class="font-display font-bold text-ink text-xl lg:text-[22px]">Understand</p>
+        <p class="text-sm text-slate2 mt-3 leading-relaxed font-medium">Scope the role and success criteria.</p>
+      </div>
+      <div class="step-item bg-white p-6 lg:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-cyan-500/40 transition-all">
+        <p class="font-display font-bold text-ink text-xl lg:text-[22px]">Source</p>
+        <p class="text-sm text-slate2 mt-3 leading-relaxed font-medium">Tap active and passive talent pools.</p>
+      </div>
+      <div class="step-item bg-white p-6 lg:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-cyan-500/40 transition-all">
+        <p class="font-display font-bold text-ink text-xl lg:text-[22px]">Screen</p>
+        <p class="text-sm text-slate2 mt-3 leading-relaxed font-medium">Vet skills, fit and intent.</p>
+      </div>
+      <div class="step-item bg-white p-6 lg:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-cyan-500/40 transition-all">
+        <p class="font-display font-bold text-ink text-xl lg:text-[22px]">Shortlist</p>
+        <p class="text-sm text-slate2 mt-3 leading-relaxed font-medium">Only candidates worth your time.</p>
+      </div>
+      <div class="step-item bg-white p-6 lg:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-cyan-500/40 transition-all">
+        <p class="font-display font-bold text-ink text-xl lg:text-[22px]">Coordinate</p>
+        <p class="text-sm text-slate2 mt-3 leading-relaxed font-medium">Manage interviews end to end.</p>
+      </div>
+      <div class="step-item bg-white p-6 lg:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-cyan-500/40 transition-all">
+        <p class="font-display font-bold text-ink text-xl lg:text-[22px]">Close</p>
+        <p class="text-sm text-slate2 mt-3 leading-relaxed font-medium">Offer, negotiation, onboarding.</p>
+      </div>
+      <div class="step-item bg-white p-6 lg:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-cyan-500/40 transition-all">
+        <p class="font-display font-bold text-ink text-xl lg:text-[22px]">Partner</p>
+        <p class="text-sm text-slate2 mt-3 leading-relaxed font-medium">Engaged for what you hire next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY AUM ANALYTIC ============ -->
+<section class="bg-gradient-to-b from-[#0A1128] to-[#060C17] py-28">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10">
+    <p class="font-display text-cyan-400 font-semibold text-[12px] tracking-[0.18em] uppercase mb-4 reveal">Why AUM ANALYTIC</p>
+    <div class="reveal-group border-t border-white/10 grid lg:grid-cols-2 gap-x-12">
+      <div class="row-item grid grid-cols-12 gap-4 py-7 border-b border-white/10 items-baseline">
+        <span class="col-span-12">
+          <span class="font-display text-white text-lg font-medium block">IT + Non-IT Expertise</span>
+          <span class="text-slate-300 text-sm mt-1 block">One partner for every hiring need.</span>
+        </span>
+      </div>
+      <div class="row-item grid grid-cols-12 gap-4 py-7 border-b border-white/10 items-baseline">
+        <span class="col-span-12">
+          <span class="font-display text-white text-lg font-medium block">Scalable Hiring</span>
+          <span class="text-slate-300 text-sm mt-1 block">From single roles to full teams.</span>
+        </span>
+      </div>
+      <div class="row-item grid grid-cols-12 gap-4 py-7 border-b border-white/10 items-baseline">
+        <span class="col-span-12">
+          <span class="font-display text-white text-lg font-medium block">Multi-Market Reach</span>
+          <span class="text-slate-300 text-sm mt-1 block">India, USA and Canada, natively.</span>
+        </span>
+      </div>
+      <div class="row-item grid grid-cols-12 gap-4 py-7 border-b border-white/10 items-baseline">
+        <span class="col-span-12">
+          <span class="font-display text-white text-lg font-medium block">Responsive Recruitment</span>
+          <span class="text-slate-300 text-sm mt-1 block">Fast turnaround on urgent briefs.</span>
+        </span>
+      </div>
+      <div class="row-item grid grid-cols-12 gap-4 py-7 border-b lg:border-b-0 border-white/10 items-baseline">
+        <span class="col-span-12">
+          <span class="font-display text-white text-lg font-medium block">Client-Centric Delivery</span>
+          <span class="text-slate-300 text-sm mt-1 block">Built around how you work.</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT / STATS ============ -->
+<section class="bg-white py-24">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10">
+    <p class="font-display text-cyan-600 font-semibold text-[12px] tracking-[0.18em] uppercase mb-4 reveal">Impact We Have Created</p>
+    <div id="impact-track" class="reveal-group grid sm:grid-cols-3 gap-8 pt-4">
+      <div class="p-8 rounded-2xl bg-paper border border-slate-200/80 text-center">
+        <p class="font-serif text-6xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-royal-600 font-semibold tabnum"><span class="counter" data-target="60">0</span>+</p>
+        <p class="text-slate2 font-medium mt-3 text-base">Satisfied clients</p>
+      </div>
+      <div class="p-8 rounded-2xl bg-paper border border-slate-200/80 text-center">
+        <p class="font-serif text-6xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-royal-600 font-semibold tabnum"><span class="counter" data-target="150">0</span>+</p>
+        <p class="text-slate2 font-medium mt-3 text-base">Roles closed</p>
+      </div>
+      <div class="p-8 rounded-2xl bg-paper border border-slate-200/80 text-center">
+        <p class="font-serif text-6xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-royal-600 font-semibold tabnum"><span class="counter" data-target="1000">0</span>+</p>
+        <p class="text-slate2 font-medium mt-3 text-base">Pool of talent</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR CLIENTS & PARTNERS ============ -->
+<section id="partners" class="bg-paper py-28 overflow-hidden relative">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10 mb-16">
+    <div class="grid lg:grid-cols-12 gap-12 items-end">
+      <div class="lg:col-span-6 reveal">
+        <p class="font-display text-cyan-600 font-semibold text-[12px] tracking-[0.18em] uppercase mb-4">Our Clients & Partners</p>
+        <h2 class="font-serif text-4xl sm:text-[3.2rem] font-medium text-ink leading-[1.08]">Trusted by industry leaders</h2>
+      </div>
+      <div class="lg:col-span-6 reveal flex items-end">
+        <p class="text-slate2 text-lg leading-relaxed max-w-xl">Empowering leading companies and organizations with high-impact IT & Non-IT talent solutions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fluent Smooth Animated Slideshow Marquee -->
+  <div class="relative w-full overflow-hidden py-4">
+    <!-- Gradient Fade Masks on sides -->
+    <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none"></div>
+
+    <div class="marquee-track flex gap-8">
+      <!-- Item 1: Honeywell -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/honeywell.jpg" alt="Honeywell logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Honeywell</p>
+        </div>
+      </div>
+
+      <!-- Item 2: General Electric -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/general-electric.jpg" alt="General Electric logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">General Electric</p>
+        </div>
+      </div>
+
+      <!-- Item 3: Schneider Electric -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/schneider-electric.jpg" alt="Schneider Electric logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Schneider Electric</p>
+        </div>
+      </div>
+
+      <!-- Item 4: CBRE -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2 bg-[#003B2B] rounded-xl">
+          <img src="images/cbre.jpg" alt="CBRE logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">CBRE</p>
+        </div>
+      </div>
+
+      <!-- Item 5: Magellan Healthcare -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/magellan-healthcare.jpg" alt="Magellan Healthcare logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Magellan Healthcare</p>
+        </div>
+      </div>
+
+      <!-- Item 6: Asian Paints -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2 bg-slate-950/90 rounded-xl">
+          <img src="images/asian-paints.jpg" alt="Asian Paints logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Asian Paints</p>
+        </div>
+      </div>
+
+      <!-- Item 7: Generali Central -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/generali-central.jpg" alt="Generali Central Life Insurance logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Generali Central Life Insurance</p>
+        </div>
+      </div>
+
+      <!-- Item 8: Granules N Beans -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/granules-n-beans.jpg" alt="Granules N Beans logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Granules N Beans</p>
+        </div>
+      </div>
+
+      <!-- Item 9: Sachi Precast -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2 bg-slate-950/90 rounded-xl">
+          <img src="images/sachi-precast.jpg" alt="Sachi Precast logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Sachi Precast</p>
+        </div>
+      </div>
+
+      <!-- Item 10: Abbott -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/abbott.png" alt="Abbott logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Abbott</p>
+        </div>
+      </div>
+
+      <!-- Item 11: Amazon -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/amazon.png" alt="Amazon logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Amazon</p>
+        </div>
+      </div>
+
+      <!-- DUPLICATE SET FOR SEAMLESS INFINITE LOOP -->
+
+      <!-- Item 1 Dup: Honeywell -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/honeywell.jpg" alt="Honeywell logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Honeywell</p>
+        </div>
+      </div>
+
+      <!-- Item 2 Dup: General Electric -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/general-electric.jpg" alt="General Electric logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">General Electric</p>
+        </div>
+      </div>
+
+      <!-- Item 3 Dup: Schneider Electric -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/schneider-electric.jpg" alt="Schneider Electric logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Schneider Electric</p>
+        </div>
+      </div>
+
+      <!-- Item 4 Dup: CBRE -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2 bg-[#003B2B] rounded-xl">
+          <img src="images/cbre.jpg" alt="CBRE logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">CBRE</p>
+        </div>
+      </div>
+
+      <!-- Item 5 Dup: Magellan Healthcare -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/magellan-healthcare.jpg" alt="Magellan Healthcare logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Magellan Healthcare</p>
+        </div>
+      </div>
+
+      <!-- Item 6 Dup: Asian Paints -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2 bg-slate-950/90 rounded-xl">
+          <img src="images/asian-paints.jpg" alt="Asian Paints logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Asian Paints</p>
+        </div>
+      </div>
+
+      <!-- Item 7 Dup: Generali Central -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/generali-central.jpg" alt="Generali Central Life Insurance logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Generali Central Life Insurance</p>
+        </div>
+      </div>
+
+      <!-- Item 8 Dup: Granules N Beans -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/granules-n-beans.jpg" alt="Granules N Beans logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Granules N Beans</p>
+        </div>
+      </div>
+
+      <!-- Item 9 Dup: Sachi Precast -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2 bg-slate-950/90 rounded-xl">
+          <img src="images/sachi-precast.jpg" alt="Sachi Precast logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Sachi Precast</p>
+        </div>
+      </div>
+
+      <!-- Item 10 Dup: Abbott -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/abbott.png" alt="Abbott logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Abbott</p>
+        </div>
+      </div>
+
+      <!-- Item 11 Dup: Amazon -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-cyan-500/40 flex flex-col items-center justify-between h-52 w-72 sm:w-80 shrink-0 transition-all">
+        <div class="h-28 w-full flex items-center justify-center p-2">
+          <img src="images/amazon.png" alt="Amazon logo" class="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="text-center pt-3 border-t border-slate-100 w-full">
+          <p class="font-display font-bold text-ink text-base lg:text-lg tracking-tight">Amazon</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECHNOLOGIES ============ -->
+<section class="bg-gradient-to-r from-[#060C17] via-[#0A1128] to-[#060C17] py-24">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10">
+    <p class="font-display text-cyan-400 font-semibold text-[12px] tracking-[0.18em] uppercase mb-10 reveal">Technologies We Recruit For</p>
+    <div class="reveal-group flex flex-wrap gap-x-12 gap-y-6 items-center">
+      <span class="font-serif text-2xl text-white bg-white/5 border border-white/10 px-6 py-2.5 rounded-full hover:border-cyan-400/50 hover:text-cyan-300 transition-all">Java</span>
+      <span class="font-serif text-2xl text-white bg-white/5 border border-white/10 px-6 py-2.5 rounded-full hover:border-cyan-400/50 hover:text-cyan-300 transition-all">.NET</span>
+      <span class="font-serif text-2xl text-white bg-white/5 border border-white/10 px-6 py-2.5 rounded-full hover:border-cyan-400/50 hover:text-cyan-300 transition-all">Python</span>
+      <span class="font-serif text-2xl text-white bg-white/5 border border-white/10 px-6 py-2.5 rounded-full hover:border-cyan-400/50 hover:text-cyan-300 transition-all">React</span>
+      <span class="font-serif text-2xl text-white bg-white/5 border border-white/10 px-6 py-2.5 rounded-full hover:border-cyan-400/50 hover:text-cyan-300 transition-all">Angular</span>
+      <span class="font-serif text-2xl text-white bg-white/5 border border-white/10 px-6 py-2.5 rounded-full hover:border-cyan-400/50 hover:text-cyan-300 transition-all">Node.js</span>
+      <span class="font-serif text-2xl text-white bg-white/5 border border-white/10 px-6 py-2.5 rounded-full hover:border-cyan-400/50 hover:text-cyan-300 transition-all">AWS</span>
+      <span class="font-serif text-2xl text-white bg-white/5 border border-white/10 px-6 py-2.5 rounded-full hover:border-cyan-400/50 hover:text-cyan-300 transition-all">Azure</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIAL ============ -->
+<section class="bg-white py-28">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10">
+    <div class="reveal max-w-3xl border-l-4 border-cyan-500 pl-8 lg:pl-12 py-2">
+      <p class="font-serif text-2xl sm:text-3xl text-ink leading-snug font-medium">
+        "AUM ANALYTIC understood our hiring bar quickly and kept every shortlist tight — we stopped wasting interview time on the wrong candidates."
+      </p>
+      <p class="font-display text-sm text-cyan-700 font-semibold mt-6 uppercase tracking-wider">VP Talent Acquisition · FinTech Client</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TARGETED CTAs ============ -->
+<section id="careers" class="bg-paper py-28">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10 reveal-group grid lg:grid-cols-2 gap-8">
+    <div class="p-10 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+      <p class="text-cyan-600 font-display text-xs font-semibold tracking-wider uppercase mb-4">For Employers</p>
+      <h3 class="font-serif text-3xl sm:text-4xl text-ink leading-tight">Build your team with the right talent</h3>
+      <p class="text-slate2 mt-5 leading-relaxed">Tell us the role, we'll bring you a shortlist worth interviewing.</p>
+      <a href="#contact" class="cta-btn btn-glow inline-block mt-8 bg-gradient-to-r from-cyan-500 to-royal-600 text-white font-display text-sm font-semibold px-8 py-3.5 rounded-xl shadow-md">Submit Your Requirement</a>
+    </div>
+    <div class="p-10 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+      <p class="text-royal-600 font-display text-xs font-semibold tracking-wider uppercase mb-4">For Candidates</p>
+      <h3 class="font-serif text-3xl sm:text-4xl text-ink leading-tight">Find your next opportunity</h3>
+      <p class="text-slate2 mt-5 leading-relaxed">Share your resume and we'll match you against live roles.</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#contact" id="candidate-cta" class="cta-btn bg-ink text-white font-display text-sm font-semibold px-7 py-3.5 rounded-xl">Submit Your Resume</a>
+        <a href="#contact" class="cta-btn border border-slate-300 text-slate2 hover:border-cyan-500 hover:text-cyan-600 font-display text-sm font-medium px-7 py-3.5 rounded-xl">View Open Positions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / FORM ============ -->
+<section id="contact" class="bg-white py-28">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10 grid lg:grid-cols-12 gap-16">
+    <div class="lg:col-span-4 reveal">
+      <p class="font-display text-cyan-600 font-semibold text-[12px] tracking-[0.18em] uppercase mb-4">Get In Touch</p>
+      <h2 class="font-serif text-4xl sm:text-[3.2rem] font-medium text-ink leading-[1.08]">Submit your requirement</h2>
+      <p class="mt-6 text-slate2 leading-relaxed">Tell us what you need to hire and our team will respond within one business day.</p>
+
+      <div class="mt-10 space-y-8 border-t border-line pt-6">
+        <div>
+          <p class="font-display text-ink text-sm font-semibold tracking-wide uppercase mb-3">India</p>
+          <div class="text-slate2 text-sm leading-relaxed space-y-1">
+            <p>📍 Hapur- 245101</p>
+            <p>📍 Delhi, India – 110001</p>
+            <p>📍 Noida, Uttar Pradesh, India – 201306</p>
+            <p>📍 Bengaluru, Karnataka, India – 560001</p>
+            <p>📍 Mumbai, Maharashtra, India – 400001</p>
+            <p>📍 Dehradun, Uttarakhand, India – 248001</p>
+          </div>
+          <a href="tel:+918755719211" class="text-cyan-700 font-display text-sm font-medium block mt-3 hover:underline">+91 87557 19211</a>
+          <a href="mailto:HR@AUMANALYTIC.COM" class="text-cyan-700 font-display text-sm font-medium block mt-1 hover:underline">HR@AUMANALYTIC.COM</a>
+        </div>
+        <div>
+          <p class="font-display text-ink text-sm font-semibold tracking-wide uppercase mb-3">Canada</p>
+          <p class="text-slate2 text-sm leading-relaxed">AUM Analytic<br>6835 Century Ave, Mississauga, ON L5N 7K9</p>
+          <a href="tel:+14374342287" class="text-cyan-700 font-display text-sm font-medium block mt-2 hover:underline">+1 437-434-2287</a>
+          <a href="mailto:info@aumanalytic.ca" class="text-cyan-700 font-display text-sm font-medium block mt-1 hover:underline">info@aumanalytic.ca</a>
+
+          <div class="mt-5 border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+            <iframe
+              title="AUM Analytic Canada office map"
+              src="https://maps.google.com/maps?q=6835%20Century%20Ave%2C%20Mississauga%2C%20ON%20L5N%207K9&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="220" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <a href="https://www.google.com/maps/search/?api=1&query=6835+Century+Ave%2C+Mississauga%2C+ON+L5N+7K9" target="_blank" rel="noopener"
+              class="flex items-center justify-between px-4 py-3 bg-[#060C17] text-white text-xs font-display tracking-wide hover:bg-cyan-600 transition-colors">
+              Get directions
+              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form id="requirement-form" class="lg:col-span-8 reveal bg-paper p-8 lg:p-10 rounded-2xl border border-slate-200/80 shadow-sm grid sm:grid-cols-2 gap-x-8 gap-y-6" novalidate>
+      <div>
+        <label class="text-xs text-slate2 font-semibold uppercase tracking-wide">Full Name *</label>
+        <input type="text" name="fullName" required class="field mt-2 w-full text-sm text-ink">
+      </div>
+      <div>
+        <label class="text-xs text-slate2 font-semibold uppercase tracking-wide">Company Name *</label>
+        <input type="text" name="companyName" required class="field mt-2 w-full text-sm text-ink">
+      </div>
+      <div>
+        <label class="text-xs text-slate2 font-semibold uppercase tracking-wide">Business Email *</label>
+        <input type="email" name="email" required class="field mt-2 w-full text-sm text-ink">
+      </div>
+      <div>
+        <label class="text-xs text-slate2 font-semibold uppercase tracking-wide">Phone Number *</label>
+        <input type="tel" name="phone" required class="field mt-2 w-full text-sm text-ink">
+      </div>
+      <div>
+        <label class="text-xs text-slate2 font-semibold uppercase tracking-wide">Industry</label>
+        <select name="industry" class="field mt-2 w-full text-sm text-ink bg-white">
+          <option>Banking & NBFC</option>
+          <option>Insurance</option>
+          <option>Manufacturing & Engineering</option>
+          <option>FMCG</option>
+          <option>FinTech</option>
+          <option>IT & Technology</option>
+          <option>BPO & Customer Experience</option>
+          <option>EdTech</option>
+          <option>Healthcare & Pharma</option>
+          <option>Retail & E-Commerce</option>
+          <option>Logistics & Supply Chain</option>
+          <option>Corporate Services</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-xs text-slate2 font-semibold uppercase tracking-wide">Service Required</label>
+        <select name="serviceRequired" class="field mt-2 w-full text-sm text-ink bg-white">
+          <option>Permanent Recruitment</option>
+          <option>Direct Hire</option>
+          <option>Contract Staffing</option>
+          <option>Temporary Staffing</option>
+          <option>Contract-to-Hire</option>
+          <option>Executive Search</option>
+          <option>Volume & Bulk Hiring</option>
+          <option>Specialized & Niche</option>
+          <option>Urgent Hiring</option>
+          <option>Project-Based</option>
+        </select>
+      </div>
+      <div class="sm:col-span-2">
+        <label class="text-xs text-slate2 font-semibold uppercase tracking-wide">Number of Positions</label>
+        <input type="number" name="numberOfPositions" min="1" class="field mt-2 w-full text-sm text-ink sm:w-1/2">
+      </div>
+      <div class="sm:col-span-2">
+        <label class="text-xs text-slate2 font-semibold uppercase tracking-wide">Job Details</label>
+        <textarea rows="3" name="jobDetails" class="field mt-2 w-full text-sm text-ink"></textarea>
+      </div>
+      <div class="sm:col-span-2">
+        <label class="text-xs text-slate2 font-semibold uppercase tracking-wide">Upload Job Description (PDF, Word, TXT - max 5 MB)</label>
+        <input type="file" name="jobDescription" accept=".pdf,.doc,.docx,.txt" class="mt-2 w-full text-sm text-slate2 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:bg-cyan-500/10 file:text-cyan-700 file:font-semibold file:text-xs file:uppercase">
+      </div>
+      <div class="sm:col-span-2 flex flex-col sm:flex-row items-center gap-5 pt-2">
+        <button type="submit" id="requirement-submit-btn" class="cta-btn btn-glow w-full sm:w-auto bg-gradient-to-r from-cyan-500 via-royal-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-display text-sm font-semibold px-8 py-4 rounded-xl shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">Submit Your Requirement</button>
+        <p id="requirement-form-status" class="text-sm font-display" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-[#060C17] border-t border-white/10 pt-20 pb-10">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-10">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="aum-logo.jpg" alt="AUM ANALYTIC logo" class="h-10 w-10 rounded-full object-cover ring-2 ring-cyan-500/50 shadow-[0_0_12px_rgba(6,182,212,0.3)]">
+          <span class="font-display text-white font-semibold text-base tracking-wide">AUM <span class="gradient-text">ANALYTIC</span></span>
+        </div>
+        <p class="text-slate-400 text-sm mt-5 leading-relaxed">Connecting Talent. Enabling Growth.</p>
+      </div>
+      <div>
+        <p class="text-white font-display text-xs tracking-[0.14em] uppercase font-semibold">Quick Links</p>
+        <ul class="mt-5 space-y-3 text-sm text-slate-300">
+          <li><a href="#about" class="hover:text-cyan-400 transition-colors">About Us</a></li>
+          <li><a href="#services" class="hover:text-cyan-400 transition-colors">Services</a></li>
+          <li><a href="#global" class="hover:text-cyan-400 transition-colors">Global Reach</a></li>
+          <li><a href="#contact" class="hover:text-cyan-400 transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-display text-xs tracking-[0.14em] uppercase font-semibold">Industries</p>
+        <ul class="mt-5 space-y-3 text-sm text-slate-300">
+          <li><a href="#industries" class="hover:text-cyan-400 transition-colors">Banking & NBFC</a></li>
+          <li><a href="#industries" class="hover:text-cyan-400 transition-colors">IT & Technology</a></li>
+          <li><a href="#industries" class="hover:text-cyan-400 transition-colors">Healthcare & Pharma</a></li>
+          <li><a href="#industries" class="hover:text-cyan-400 transition-colors">Retail & E-Commerce</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-display text-xs tracking-[0.14em] uppercase font-semibold">Contact</p>
+        <ul class="mt-5 space-y-3 text-sm text-slate-300">
+          <li><a href="mailto:HR@AUMANALYTIC.COM" class="hover:text-cyan-400 transition-colors">HR@AUMANALYTIC.COM</a></li>
+        </ul>
+        <div class="flex gap-3 mt-6">
+          <a href="javascript:void(0)" aria-label="Facebook" class="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center hover:border-cyan-400 hover:text-cyan-400 hover:bg-cyan-500/10 text-slate-300 transition-all">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2h-4v-7h2.4l.4-3H15V9.5c0-.9.3-1.5 1.6-1.5H18V5.3A20 20 0 0015.7 5c-2.3 0-3.8 1.4-3.8 3.9V11H9.5v3H12v7H5a2 2 0 01-2-2V5a2 2 0 012-2h14z"/></svg>
+          </a>
+          <a href="javascript:void(0)" aria-label="Twitter" class="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center hover:border-cyan-400 hover:text-cyan-400 hover:bg-cyan-500/10 text-slate-300 transition-all">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 5.2a8.3 8.3 0 01-2.4.7 4.2 4.2 0 001.8-2.3 8.3 8.3 0 01-2.6 1 4.1 4.1 0 00-7 3.8A11.7 11.7 0 013 4.9a4.1 4.1 0 001.3 5.5 4 4 0 01-1.9-.5v.1a4.1 4.1 0 003.3 4 4.2 4.2 0 01-1.9.1 4.1 4.1 0 003.8 2.9A8.3 8.3 0 012 18.4a11.7 11.7 0 006.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5a8.4 8.4 0 002.1-2.2 8.2 8.2 0 01-2.4.6 4.1 4.1 0 001.8-2.3z"/></svg>
+          </a>
+          <a href="javascript:void(0)" aria-label="LinkedIn" class="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center hover:border-cyan-400 hover:text-cyan-400 hover:bg-cyan-500/10 text-slate-300 transition-all">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.3 9.6H5.7V18h2.6V9.6zM7 6a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm11 6.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 00-2.4 1.3h0V9.6h-2.5v8.4h2.6v-4.6c0-1.2.2-2.4 1.7-2.4s1.6 1.4 1.6 2.5v4.5H18v-5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-400">
+      <p>© 2026 AUM ANALYTIC. All rights reserved.</p>
+      <p>IT & Non-IT Talent Acquisition, Recruitment, Staffing & Consulting — India · USA · Canada</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky header shadow on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 12) header.classList.add('shadow-lg');
+    else header.classList.remove('shadow-lg');
+  });
+
+  // mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+  });
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    });
+  });
+
+  // scroll-reveal for sections and grouped rows
+  const revealTargets = document.querySelectorAll('.reveal, .reveal-group');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealTargets.forEach(t => revealObserver.observe(t));
+  } else {
+    revealTargets.forEach(t => t.classList.add('in-view'));
+  }
+
+  // count-up for the Impact stats
+  const counters = document.querySelectorAll('.counter');
+  const animateCounter = (el) => {
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 1200;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  };
+  if (counters.length && 'IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(c => counterObserver.observe(c));
+  }
+
+  // ---- contact form: submit to backend API ----
+  // Points to http://localhost:4000 unless frontend is served directly by the backend on port 4000
+  const API_BASE = window.AUM_API_BASE || (
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port === '4000'
+      ? 'http://localhost:4000'
+      : ''
+  );
+
+  const reqForm = document.getElementById('requirement-form');
+  if (reqForm) {
+    const submitBtn = document.getElementById('requirement-submit-btn');
+    const statusEl = document.getElementById('requirement-form-status');
+    const fileInput = reqForm.querySelector('input[name="jobDescription"]');
+
+    if (fileInput) {
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        if (file && file.size > 5 * 1024 * 1024) {
+          statusEl.textContent = 'Uploaded file must be 5 MB or smaller.';
+          statusEl.classList.add('text-red-600');
+          statusEl.classList.remove('text-emerald-600');
+          fileInput.value = '';
+        } else {
+          statusEl.textContent = '';
+        }
+      });
+    }
+
+    reqForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!reqForm.checkValidity()) {
+        reqForm.reportValidity();
+        return;
+      }
+
+      const file = fileInput && fileInput.files ? fileInput.files[0] : null;
+      if (file && file.size > 5 * 1024 * 1024) {
+        statusEl.textContent = 'Selected file exceeds the 5 MB limit. Please choose a smaller file.';
+        statusEl.classList.add('text-red-600');
+        statusEl.classList.remove('text-emerald-600');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      statusEl.textContent = '';
+      statusEl.classList.remove('text-red-600', 'text-emerald-600');
+
+      try {
+        const formData = new FormData(reqForm);
+        const res = await fetch(`${API_BASE}/api/requirements`, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!res.ok) {
+          const errBody = await res.json().catch(() => ({}));
+          throw new Error(errBody.message || 'Something went wrong. Please try again.');
+        }
+
+        reqForm.reset();
+        statusEl.textContent = 'Thanks — your requirement has been received. Our team will reach out shortly.';
+        statusEl.classList.add('text-emerald-600');
+      } catch (err) {
+        let msg = err.message || 'Could not submit right now.';
+        if (msg === 'Failed to fetch' || msg.toLowerCase().includes('fetch')) {
+          msg = 'Unable to connect to backend server. Make sure the backend is running on http://localhost:4000 (run "npm start" in backend folder).';
+        }
+        statusEl.textContent = msg;
+        statusEl.classList.add('text-red-600');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Your Requirement';
+      }
+    });
+  }
+
+  // Candidate CTA: smooth scroll and pre-fill for job seekers
+  const candidateCta = document.getElementById('candidate-cta');
+  if (candidateCta) {
+    candidateCta.addEventListener('click', (e) => {
+      e.preventDefault();
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      const jobDetails = document.querySelector('textarea[name="jobDetails"]');
+      if (jobDetails && !jobDetails.value.trim()) {
+        jobDetails.value = 'Candidate resume submission / career inquiry.';
+      }
+    });
+  }
+
+  // sequenced highlight along the 7-step process
+  const track = document.getElementById('process-track');
+  if (track) {
+    const steps = track.querySelectorAll('.step-item');
+    const trackObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          steps.forEach((step, i) => {
+            setTimeout(() => step.classList.add('in-view'), i * 130);
+          });
+          trackObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    trackObserver.observe(track);
+  }
+</script>
+</body>
+</html>
